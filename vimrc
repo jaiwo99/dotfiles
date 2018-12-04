@@ -81,6 +81,9 @@ vnoremap <Space> zf
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview"
 
+" fzf config
+set rtp+=/usr/local/opt/fzf
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 
@@ -117,9 +120,6 @@ Plug 'vim-scripts/SearchComplete'
 
 " Markdown support
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
-
-" Python mode
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 call plug#end()
 
