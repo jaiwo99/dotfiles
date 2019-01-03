@@ -1,6 +1,10 @@
 " Set compatibility to Vim only.
 set nocompatible
 
+" Encoding
+scriptencoding utf-8
+set encoding=utf-8
+
 " Helps force plug-ins to load correctly when it is turned back on below.
 filetype off
 
@@ -47,13 +51,9 @@ set showcmd
 " Highlight matching pairs of brackets. Use the '%' character to jump between them.
 set matchpairs+=<:>
 
-" Encoding
+" Display different types of white spaces.
 scriptencoding utf-8
 set encoding=utf-8
-
-" Display different types of white spaces.
-set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
 " Show line numbers
 set number
@@ -121,6 +121,12 @@ Plug 'vim-scripts/SearchComplete'
 " Markdown support
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 
+" https://github.com/liuchengxu/space-vim-dark
+Plug 'liuchengxu/space-vim-dark'
+
+" https://github.com/arcticicestudio/nord-vim
+Plug 'arcticicestudio/nord-vim'
+
 call plug#end()
 
 " Customized Config
@@ -128,3 +134,11 @@ call plug#end()
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-o> :NERDTreeToggle<CR>
+
+colorscheme nord
+
+if !exists("macvim_skip_colorscheme") && !exists("colors_name")
+  color space-vim-dark
+  set termguicolors
+  hi LineNr ctermbg=NONE guibg=NONE
+endif
