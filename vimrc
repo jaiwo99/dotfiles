@@ -33,6 +33,10 @@ set softtabstop=2
 set expandtab
 set noshiftround
 
+" set list
+set list
+set listchars=tab:>-
+
 " Display 5 lines above/below the cursor when scrolling with a mouse.
 set scrolloff=5
 " Fixes common backspace problems
@@ -136,9 +140,3 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-o> :NERDTreeToggle<CR>
 
 colorscheme nord
-
-if !exists("macvim_skip_colorscheme") && !exists("colors_name")
-  color space-vim-dark
-  set termguicolors
-  hi LineNr ctermbg=NONE guibg=NONE
-endif
