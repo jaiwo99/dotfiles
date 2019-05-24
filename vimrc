@@ -60,7 +60,7 @@ scriptencoding utf-8
 set encoding=utf-8
 
 " Show line numbers
-set number
+set nonumber
 
 " Set status line display
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
@@ -76,6 +76,9 @@ set smartcase
 
 " Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
 set viminfo='100,<9999,s100
+
+" no fold for markdown
+set nofoldenable
 
 " Map the <Space> key to toggle a selected fold opened/closed.
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -130,6 +133,10 @@ Plug 'liuchengxu/space-vim-dark'
 
 " https://github.com/arcticicestudio/nord-vim
 Plug 'arcticicestudio/nord-vim'
+
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
